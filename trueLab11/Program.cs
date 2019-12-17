@@ -53,7 +53,20 @@ namespace trueLab2
 
         static int GetLastId()
         {
-            return File.ReadAllLines(@"E:\\test\\test.txt").Length;
+            int line = 0;
+
+            try
+            {
+                line = File.ReadAllLines(@"E:\\test\\test1.txt").Length;
+            }
+            catch (Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Нет такого файла.");
+                Console.ResetColor();
+            }
+
+            return line;
         }
 
         static void OutputLines(int count)
